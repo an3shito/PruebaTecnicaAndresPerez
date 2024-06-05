@@ -1,0 +1,43 @@
+﻿@model Login.Models.LoginViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <script type="text/javascript">
+        function validateForm() {
+            var username = document.getElementById('Usuario').value;
+            var password = document.getElementById('Constraseña').value;
+            if (username == "" || password == "") {
+                alert("Ingrese lo que se solicita");
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <h2>Login</h2>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { onsubmit = "return validateForm()" }))
+    {
+        @Html.AntiForgeryToken()
+        <div>
+            @Html.LabelFor(m => m.Username)
+            @Html.TextBoxFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Password)
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div>
+            <input type="submit" value="Submit" />
+        </div>
+    }
+    @if (TempData["Message"] != null)
+    {
+        <p>@TempData["Message"]</p>
+    }
+</body>
+</html>
