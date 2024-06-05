@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<InformacionTarjetaCredito xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="InformacionTarjetaCreditoSchema.xsd">
+    <InformacionSistema>
+        <NombreSistema>ProcesadorDePagos</NombreSistema>
+        <Localizacion>GT</Localizacion>
+    </InformacionSistema>
+    <DetallesTarjeta>
+        <NombreTitular>Juan Pérez</NombreTitular>
+        <NumeroTarjeta>********************</NumeroTarjeta>
+        <FechaExpiracion>2024-12</FechaExpiracion>
+        <CVV>123</CVV>
+    </DetallesTarjeta>
+    <InformacionCliente>
+        <IDCliente>789456</IDCliente>
+        <NombreCliente>Juan Pérez</NombreCliente>
+        <DireccionFacturacion>
+            <Calle>Calle Cruz Blanca</Calle>
+            <Ciudad>Tacana</Ciudad>
+            <Departamento>San Marcos</Departamento>
+            <CodigoPostal>502</CodigoPostal>
+            <Pais>Guatemala</Pais>
+        </DireccionFacturacion>
+    </InformacionCliente>
+</InformacionTarjetaCredito>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="InformacionTarjetaCredito">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="InformacionSistema">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NombreSistema" type="xs:string" />
+                            <xs:element name="Localizacion" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="DetallesTarjeta">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="NombreTitular" type="xs:string" />
+                            <xs:element name="NumeroTarjeta" type="xs:string" />
+                            <xs:element name="FechaExpiracion" type="xs:string" />
+                            <xs:element name="CVV" type="xs:string" />
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name="InformacionCliente">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="IDCliente" type="xs:string" />
+                            <xs:element name="NombreCliente" type="xs:string" />
+                            <xs:element name="DireccionFacturacion">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Calle" type="xs:string" />
+                                        <xs:element name="Ciudad" type="xs:string" />
+                                        <xs:element name="Estado" type="xs:string" />
+                                        <xs:element name="CodigoPostal" type="xs:string" />
+                                        <xs:element name="Pais" type="xs:string" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
